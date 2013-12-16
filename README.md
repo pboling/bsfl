@@ -15,3 +15,7 @@ Author: Louwrentius <louwrentius@gmail.com>
 Maintained by: Peter Boling <peter.boling@gmail.com>
 
 Contributions by: Jani Hurskainen
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/pboling/bsfl/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
