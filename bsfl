@@ -623,6 +623,23 @@ is_integer() {
   return 1
 }
 
+# Example:
+# arr=(a b c "d e" f g)
+# array_contains arr "a b"  && echo yes || echo no    # no
+# array_contains arr "d e"  && echo yes || echo no    # yes
+array_contains() {
+    local array="$1[@]"
+    local seeking=$2
+    local in=1
+    for element in "${!array}"; do
+        if [[ $element == $seeking ]]; then
+            in=0
+            break
+        fi
+    done
+    return $in
+}
+
 # parameters: max # attempts to try, Amount of time to sleep between attempts, command
 retry_until() {
   let max_attempts=$1
@@ -678,6 +695,7 @@ function die {
     msg_fail "ERROR: At line $err_caller"
     msg_fail "ERROR: Error code = $err_code"
     msg_fail "ERROR: Backtrace:"
+    i=1
     while caller $i
     do
       i=$((i+1))
@@ -751,4 +769,3 @@ function str_replace_in_file () {
 }
 
 init
-
